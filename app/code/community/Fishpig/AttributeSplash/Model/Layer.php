@@ -84,6 +84,7 @@ class Fishpig_AttributeSplash_Model_Layer extends Mage_Catalog_Model_Layer
 		}
 		else {
 			$collection = $this->getSplashPage()->getProductCollection();
+			$collection->addCategoryFilter($this->getSplashPage()->getCategory());
 			$this->prepareProductCollection($collection);
 			$this->_productCollections[$key] = $collection;
 		}
