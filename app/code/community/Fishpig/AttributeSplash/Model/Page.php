@@ -136,7 +136,10 @@ class Fishpig_AttributeSplash_Model_Page extends Fishpig_AttributeSplash_Model_A
 		if (($category = parent::getCategory()) !== false) {
 			return $category;
 		}
-		
-		return $this->getSplashGroup()->getCategory();
+		$category = $this->getSplashGroup()->getCategory();
+		if (!$category) {
+		    $category = Mage::getModel("catalog/category");
+		}
+		return $category;
 	}
 }
